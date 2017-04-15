@@ -189,7 +189,7 @@ class App extends Component {
     else
   
       topRight = (<a href={'/user/'+this.state.currentUser}>
-        <img src={this.state.users[this.state.currentUser].photo} style={{width: '80px', float: 'right'}}/>
+        <img src={this.state.users[this.state.currentUser].photo} style={{width: '80px', height: '80px', float: 'right', borderRadius: '50%'}}/>
       </a>)
 
 
