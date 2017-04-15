@@ -13,7 +13,7 @@ console.log(Route);
 
 ReactDOM.render(
   <Router>
-    <Route path="/" component={Root} />
+    <Route path="/" component={App} />
   </Router>,
   document.getElementById('root')
 );
