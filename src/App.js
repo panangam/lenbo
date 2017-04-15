@@ -75,11 +75,12 @@ class App extends Component {
       <div style={{width: 800, margin: '0 auto'}}>
       <div className="row">
         <Col md={8}>
-          <h1>Lenbo</h1>
+          <a href="/"><img src="logo.png" alt="" style={{margin: '10px 0', height: 80}}/></a>
           <FormGroup>
             <FormControl
               type="text"
               id="search"
+              placeholder="search..."
             />
           </FormGroup>
         </Col>

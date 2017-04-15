@@ -12,6 +12,8 @@ import {
   HelpBlock,
   Panel } from 'react-bootstrap'
 
+//import './LoginFireBase.js'
+
 class Login extends Component {
   constructor() {
     super()
