@@ -5,7 +5,7 @@ class UserProfileView extends React.Component {
     let user = this.props.user;
     return (
       <div>
-        <img src={user.photo}></img>
+        <img src={user.photo} style={{height: 300}}></img>
         <h2>{user.name}</h2>
         <h3>{user.location}</h3>
         <p>{user.gender} | {user.birthday}</p>

@@ -180,17 +180,17 @@ class App extends Component {
 
     if (this.state.currentUser < 0) topRight = (
       <ButtonToolbar style={{marginTop: 30}}>
-        <a href="/login">
+        <Link to="/login">
           <Button style={{float: 'right', width: "80px", margin: 2.5}}  bsStyle="default">Log in</Button>
-        </a>
+        </Link>
         <Button style={{float: 'right',  width: "80px", margin: 2.5}}  bsStyle="default">Register</Button>
       </ButtonToolbar>
     )
     else
   
-      topRight = (<a href={'/user/'+this.state.currentUser}>
+      topRight = (<Link to={'/user/'+this.state.currentUser}>
         <img src={this.state.users[this.state.currentUser].photo} style={{width: '80px', height: '80px', float: 'right', borderRadius: '50%'}}/>
-      </a>)
+      </Link>)
 
 
     console.log(this.state)
@@ -206,7 +206,7 @@ class App extends Component {
 
       <div className="row">
         <Col md={12}>
-          <a href="/"><img className="img-responsive" src="logo.png" alt="" style={{margin: '20px auto 40px auto', height: 120}}/></a>
+          <Link to="/"><img className="img-responsive" src="logo.png" alt="" style={{margin: '20px auto 40px auto', height: 120}}/></Link>
         </Col>
       </div>
 
