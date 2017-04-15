@@ -73,9 +73,11 @@ class Login extends Component {
           <FormControl.Feedback />
         </FormGroup>
         <ButtonToolbar bsClass="text-center">
-          <Button type="submit" bsStyle="primary">
+          <Link to='/'>
+          <Button bsStyle="primary" onClick={this.props.onClick}>
             Submit
           </Button>
+          </Link>
         </ButtonToolbar>
       </form>
       </Panel>

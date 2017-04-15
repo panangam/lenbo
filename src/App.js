@@ -175,6 +175,13 @@ class App extends Component {
     console.log(word)
   }
 
+  toggleUser() {
+    this.demoIndex = (this.demoIndex + 1) % 3
+    this.state.loggedIn = this.demoData[this.demoIndex].loggedIn
+    this.state.currentUser = this.demoData[this.demoIndex].currentUser
+    this.setState(this.state)
+  }
+
   render() {
     let topRight
 
@@ -210,12 +217,7 @@ class App extends Component {
         </Col>
       </div>
 
-      <button onClick={()=>{
-            this.demoIndex = (this.demoIndex + 1) % 3
-            this.state.loggedIn = this.demoData[this.demoIndex].loggedIn
-            this.state.currentUser = this.demoData[this.demoIndex].currentUser
-            this.setState(this.state)
-          }}>toggle</button>
+      <button onClick={()=>this.toggleUser()}>toggle</button>
 
          <FormGroup bsSize="large">
             <FormControl 
@@ -232,7 +234,7 @@ class App extends Component {
         
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
-            <Route path="/login" component={Login}/>
+            <Route path="/login" component={()=><Login onClick={()=>this.toggleUser()}/>}/>
             <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
             <Route path="/lending/:id" component={({match})=><LendingStatus objects={this.state.objects} id={match.params.id}/>} />
             <Route path="/confirm" component={CompleteTransaction} />
