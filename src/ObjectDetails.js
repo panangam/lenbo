@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button, FormGroup, FormControl } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Button, FormGroup, FormControl, Row, Col, Image  } from 'react-bootstrap'
+import { Link} from 'react-router-dom'
 
 class ObjectDetails extends Component {
   render() {
@@ -12,19 +12,28 @@ class ObjectDetails extends Component {
     return (
       <div>
         <div>
-        <h1>{object.name}</h1>
-        <h2>{object.price}</h2>
+        <h1>{object.name}&nbsp;<span style={{background: '#f0ad4e', color: 'white', padding: '5px' }}>{object.price}</span></h1>
         <img src={object.pic} alt=""/>
-        <h2>{object.review}</h2>
         </div>
         
         <div>
           <Link to="/confirm">
-          <button>Rent it</button>
+          <Button bsStyle="warning" style={{height: '50px', width: '120px', fontSize: "16px"}}>Request</Button>
           </Link>
           </div>
+          <div style={{textAlign: 'left', margin: '40px'}}>
+            <h3 >Review</h3>
+            <hr></hr>
+            <Row>
+            <Col xs={1} md={1}>
+              <Image src="https://i.vimeocdn.com/portrait/3035991_50x50" rounded />
+            </Col>
+          <Col xs={10} md={10}>
+              <h4>{object.review}</h4>
+          </Col>
+          </Row>
+          </div>
   
-
         <table>
         </table>
       </div>
