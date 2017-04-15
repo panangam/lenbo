@@ -11,8 +11,9 @@ class ObjectDetails extends Component {
 
     return (
       <div>
+
         <div>
-        <h1>{object.name}&nbsp;<span style={{background: '#f0ad4e', color: 'white', padding: '5px' }}>{object.price}</span></h1>
+        <h1>{object.name}&nbsp;<span style={{background: '#f0ad4e', color: 'white', padding: '5px', borderRadius: '5px' }}>{object.price}</span></h1>
         <img src={object.pic} alt=""/>
         </div>
         
@@ -20,7 +21,17 @@ class ObjectDetails extends Component {
           <Link to="/confirm">
           <Button bsStyle="warning" style={{height: '50px', width: '120px', fontSize: "16px"}}>Request</Button>
           </Link>
+        </div>
+
+        <hr></hr>
+
+          <div style={{margin: '40px'}}>
+            <h3 >About Lender</h3>
+            <hr></hr>
+             <h3 >Steve III</h3>
+            <h4>Santa Clara, CA</h4>
           </div>
+
           <div style={{textAlign: 'left', margin: '40px'}}>
             <h3 >Review</h3>
             <hr></hr>
@@ -33,10 +44,8 @@ class ObjectDetails extends Component {
           </Col>
           </Row>
           </div>
-  
-        <table>
-        </table>
-      </div>
+
+          </div>      
     )
   }
 }
