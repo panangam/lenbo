@@ -17,6 +17,7 @@ import {
 class Login extends Component {
   constructor() {
     super()
+    console.log(this)
     this.state = {
       email: '',
       passwork: '',
@@ -24,6 +25,7 @@ class Login extends Component {
   }
 
   handleChangeEmail(e) {
+    
     this.setState({ 
       email: e.target.value,
       password: this.state.password,
@@ -31,6 +33,7 @@ class Login extends Component {
   }
 
   handleChangePassword(e) {
+    console.log(this)
     this.setState({ 
       email: this.state.email,
       password: e.target.value,
@@ -40,7 +43,7 @@ class Login extends Component {
   render() {
     return (
       <Panel style={{width: 500, margin: '0 auto'}}>
-      <form>
+      <form action="/">
         <FormGroup
           controlId="email"
           //validationState={this.getValidationState()}

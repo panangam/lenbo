@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ObjectDetails from './ObjectDetails'
 import Login from './Login'
+import LendingStatus from './LendingStatus'
 import { 
   Button, 
   FormGroup, 
@@ -19,6 +20,8 @@ import {
   browserHistory,
   hashHistory
 } from 'react-router-dom';
+
+let $ = require('jquery')
 
 class ObjectEntry extends Component {
   render() {
@@ -46,11 +49,14 @@ class ObjectList extends Component {
   }
 }
 
+
+
 class App extends Component {
   constructor() {
     super()
 
     this.state = {
+      loggedIn: false,
       objects: [
         {
           id: 0,
@@ -70,12 +76,41 @@ class App extends Component {
     }
   }
 
+  generateWord() {
+    let charList = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    let word = ''
+    
+    for (let i = 0; i < 10; i++) {
+      word += charList.charAt(Math.floor(Math.random()*36))
+    }
+    
+    console.log(word)
+  }
+
   render() {
+    let topRight
+
+    if (!this.state.loggedIn) topRight = (
+      <ButtonToolbar style={{marginTop: 30}}>
+        <a href="/login">
+          <Button bsStyle="primary">Log in</Button>
+        </a>
+        <Button bsStyle="warning">Register</Button>
+      </ButtonToolbar>
+    )
+    else
+      topRight = 'loggedIn'
+
     return (
       <div style={{width: 800, margin: '0 auto'}}>
       <div className="row">
         <Col md={8}>
-          <a href="/"><img src="logo.png" alt="" style={{margin: '10px 0', height: 80}}/></a>
+          <img src="logo.png" alt="" style={{margin: '10px 0', height: 80}}/>
+          <button onClick={()=>{
+            this.state.loggedIn = !this.state.loggedIn
+            this.setState(this.state)
+            console.log(this.state.loggedIn)
+          }}>toggle</button>
           <FormGroup>
             <FormControl
               type="text"
@@ -86,12 +121,7 @@ class App extends Component {
         </Col>
         <Col md={4}>
           <div>
-          <ButtonToolbar style={{marginTop: 30}}>
-            <a href="/login">
-              <Button bsStyle="primary">Log in</Button>
-            </a>
-            <Button bsStyle="warning">Register</Button>
-          </ButtonToolbar>
+            {topRight}
           </div>
         </Col>
         <hr></hr>
@@ -102,7 +132,7 @@ class App extends Component {
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
             <Route path="/login" component={Login}/>
             <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
-            
+            <Route path="/lending/:id" component={({match})=><LendingStatus objects={this.state.objects} id={match.params.id}/>} />
           </div>
         </Router>
       </div>
