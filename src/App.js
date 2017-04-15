@@ -8,7 +8,8 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  browserHistory
+  browserHistory,
+  hashHistory
 } from 'react-router-dom';
 
 class ObjectEntry extends Component {
@@ -72,10 +73,10 @@ class App extends Component {
         </FormGroup>
         <hr></hr>
 
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
-            <Route path="/object/:id" component={ObjectDetails} objects={this.state.objects} />
+            <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
           </div>
         </Router>
       </div>

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 
 class ObjectDetails extends Component {
   render() {
-    let objectId = this.props.match.params.id
-    let object = this.props.objects.find((object)=>{return object.id===objectId})
+    console.log(this.props.objects.find((object)=>{return object.id===this.props.id}))
+    let object = this.props.objects.find((object)=>{return object.id==this.props.id})
 
     return (
       <div>
