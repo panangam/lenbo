@@ -1,6 +1,6 @@
 import React from 'react';
  
-class UserProfile extends React.Component {
+class UserProfileView extends React.Component {
   render() {
     let user = this.props.user;
     return (
@@ -19,6 +19,20 @@ class UserProfile extends React.Component {
         )}
 
       </div>
+    );
+  }
+}
+
+class UserProfile extends React.Component {
+  render() {
+    let users = this.props.users;
+    let id = this.props.id;
+    let thisUser = this.props.users.find((user)=>{
+      return user.id==id
+    })
+
+    return (
+      <UserProfileView user={thisUser} />
     );
   }
 }

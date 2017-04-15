@@ -76,7 +76,7 @@ class App extends Component {
           review: "It's awesome, most convenient Braking and Shifting in one location",
         }
       ],
-      user: 
+      users: [
         {
           id: 0,
           name: "Melania Trump",
@@ -102,6 +102,32 @@ class App extends Component {
             }
           ],
         },
+        {
+          id: 1,
+          name: "Malaria Trump",
+          gender: "Male",
+          birthday: "February 30, 1970",
+          location: "Los Angeles, CA",
+          photo: "https://mgtvwcbd.files.wordpress.com/2016/07/wcbd-melania-trump.jpg?w=650",
+          bio: "Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
+          objects: [
+            {
+              id: 2,
+              name: "Road Bikes with Carbon Forks",
+              price: "$500",
+              pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-white_500.jpg",
+              review: "I like it, perfect for the entry to sport level athlete."
+            },
+            {
+              id: 3,
+              name: "Motobecane Mirage S",
+              price: "$500",
+              pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-black_500.jpg",
+              review: "It's awesome, most convenient Braking and Shifting in one location",
+            }
+          ],
+        }
+      ],
     }
   }
 
@@ -163,7 +189,7 @@ class App extends Component {
             <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
             <Route path="/lending/:id" component={({match})=><LendingStatus objects={this.state.objects} id={match.params.id}/>} />
             <Route path="/confirm" component={CompleteTransaction} />
-            <Route path="/user/:id" component={({match})=><UserProfile user={this.state.user} id={match.params.id}/>} />
+            <Route path="/user/:id" component={({match})=><UserProfile users={this.state.users} id={match.params.id}/>} />
           </div>
         </Router>
       </div>
