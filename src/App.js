@@ -4,6 +4,9 @@ import './App.css';
 import ObjectDetails from './ObjectDetails'
 import Login from './Login'
 import LendingStatus from './LendingStatus'
+import CompleteTransaction from './CompleteTransaction'
+import UserProfile from './UserProfile'
+
 import { 
   Button, 
   FormGroup, 
@@ -72,7 +75,33 @@ class App extends Component {
           pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-black_500.jpg",
           review: "It's awesome, most convenient Braking and Shifting in one location",
         }
-      ]
+      ],
+      user: 
+        {
+          id: 0,
+          name: "Melania Trump",
+          gender: "Female",
+          birthday: "April 26, 1970",
+          location: "Los Angeles, CA",
+          photo: "https://mgtvwcbd.files.wordpress.com/2016/07/wcbd-melania-trump.jpg?w=650",
+          bio: "Lorem ipsum dolor sit amet",
+          objects: [
+            {
+              id: 0,
+              name: "Road Bikes with Carbon Forks",
+              price: "$500",
+              pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-white_500.jpg",
+              review: "I like it, perfect for the entry to sport level athlete."
+            },
+            {
+              id: 1,
+              name: "Motobecane Mirage S",
+              price: "$500",
+              pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-black_500.jpg",
+              review: "It's awesome, most convenient Braking and Shifting in one location",
+            }
+          ],
+        },
     }
   }
 
@@ -127,12 +156,14 @@ class App extends Component {
         <hr></hr>
       </div>
       <div className="text-center">
-        <Router history={hashHistory}>
+        <Router>
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
             <Route path="/login" component={Login}/>
             <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
             <Route path="/lending/:id" component={({match})=><LendingStatus objects={this.state.objects} id={match.params.id}/>} />
+            <Route path="/confirm" component={CompleteTransaction} />
+            <Route path="/user/:id" component={({match})=><UserProfile user={this.state.user} id={match.params.id}/>} />
           </div>
         </Router>
       </div>
