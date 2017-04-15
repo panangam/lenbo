@@ -14,7 +14,7 @@ import {
   Col, 
   ButtonToolbar,
   ControlLabel,
-  HelpBlock, Thumbnail } from 'react-bootstrap'
+  HelpBlock, Thumbnail, Row, Grid } from 'react-bootstrap'
 
 import {
   BrowserRouter as Router,
@@ -29,15 +29,20 @@ let $ = require('jquery')
 class ObjectEntry extends Component {
   render() {  
     return (
-      <div>
+ 
+ 
+ 
         <Link to={'/object/'+this.props.object.id}>
-          <Col xs={6} md={4}>
-          <Thumbnail src={this.props.object.pic} style={{width: 300}} >
-          <h3>{this.props.object.name}</h3>
+          <Col xs={6} md={6}>
+          <Thumbnail src={this.props.object.pic} style={{width: 300, height: 300, padding: '30px 10px 0 10px'}} >
+          <h4>{this.props.object.name}</h4>
           </Thumbnail>
           </Col>
         </Link>
-      </div>
+ 
+       
+   
+      
     )
   }
 }
