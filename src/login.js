@@ -9,7 +9,8 @@ import {
   Col, 
   ButtonToolbar,
   ControlLabel,
-  HelpBlock } from 'react-bootstrap'
+  HelpBlock,
+  Panel } from 'react-bootstrap'
 
 class Login extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class Login extends Component {
 
   render() {
     return (
-      <panel>
+      <Panel style={{width: 500, margin: '0 auto'}}>
       <form>
         <FormGroup
           controlId="username"
@@ -72,7 +73,7 @@ class Login extends Component {
           </Button>
         </ButtonToolbar>
       </form>
-      </panel>
+      </Panel>
     )
   }
 }
