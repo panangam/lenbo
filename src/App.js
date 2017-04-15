@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, FormGroup, FormControl } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 class ObjectEntry extends Component {
   render() {
     return (
       <div>
-        <img src={this.props.pic} style={{width: 100, height: 100}} />
-        <b>{this.props.name}</b>
+        <Link to={'/object/'+this.props.object.id}>
+          <img src={this.props.object.pic} style={{width: 100, height: 100}} />
+          <b>{this.props.object.name}</b>
+        </Link>
       </div>
     )
   }
@@ -21,10 +24,12 @@ class App extends Component {
     this.state = {
       objects: [
         {
+          id: 0,
           name: "test1",
           pic: "https://i.vimeocdn.com/portrait/58832_300x300",
         },
         {
+          id: 1,
           name: "test2",
           pic: "https://i.vimeocdn.com/portrait/58832_300x300",
         }
@@ -44,7 +49,7 @@ class App extends Component {
         </FormGroup>
         <hr></hr>
         {this.state.objects.map((object) => 
-          <ObjectEntry pic={object.pic} name={object.name} key={object.name} />
+          <ObjectEntry object={object} key={object.id} />
         )}
       </div>
     );
