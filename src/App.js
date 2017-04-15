@@ -27,8 +27,7 @@ import {
 let $ = require('jquery')
 
 class ObjectEntry extends Component {
-  render() {
-    console.log(this.props.object)
+  render() {  
     return (
       <div>
         <Link to={'/object/'+this.props.object.id}>
@@ -136,6 +135,8 @@ class App extends Component {
       {loggedIn: true, currentUser: 0},
       {loggedIn: true, currentUser: 1},
     ]
+
+    this.demoIndex = 0
   }
 
   generateWord() {
@@ -161,17 +162,23 @@ class App extends Component {
       </ButtonToolbar>
     )
     else
-      topRight = 'loggedIn'
+      topRight = (<a href={'/user/'+this.state.currentUser}>
+        <img src={this.state.users[this.state.currentUser].photo} style={{width: 100, marginTop: 30}}/>
+      </a>)
 
     return (
+      <Router>
       <div style={{width: 800, margin: '0 auto'}}>
       <div className="row">
         <Col md={8}>
+          <Link to='/'>
           <img src="logo.png" alt="" style={{margin: '10px 0', height: 80}}/>
+          </Link>
           <button onClick={()=>{
-            this.state.loggedIn = !this.state.loggedIn
+            this.demoIndex = (this.demoIndex + 1) % 3
+            this.state.loggedIn = this.demoData[this.demoIndex].loggedIn
+            this.state.currentUser = this.demoData[this.demoIndex].currentUser
             this.setState(this.state)
-            console.log(this.state.loggedIn)
           }}>toggle</button>
           <FormGroup>
             <FormControl
@@ -189,7 +196,7 @@ class App extends Component {
         <hr></hr>
       </div>
       <div className="text-center">
-        <Router>
+        
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
             <Route path="/login" component={Login}/>
@@ -198,9 +205,10 @@ class App extends Component {
             <Route path="/confirm" component={CompleteTransaction} />
             <Route path="/user/:id" component={({match})=><UserProfile users={this.state.users} id={match.params.id}/>} />
           </div>
-        </Router>
+        
       </div>
       </div>
+      </Router>
     );
   }
 }
