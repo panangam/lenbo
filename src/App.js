@@ -42,10 +42,13 @@ class App extends Component {
       <div className="row text-center">
         <h1>Lenbo</h1>
         <FormGroup>
-        <FormControl
-          className="text-center"
-          type="text"
-        />
+          <FormControl
+            className="text-center"
+            style={
+              {maxWidth: 400, margin: '0 auto 10px'}
+            }
+            type="text"
+          />
         </FormGroup>
         <hr></hr>
         {this.state.objects.map((object) => 
