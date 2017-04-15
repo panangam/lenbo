@@ -156,9 +156,9 @@ class App extends Component {
     if (this.state.currentUser < 0) topRight = (
       <ButtonToolbar style={{marginTop: 30}}>
         <a href="/login">
-          <Button bsStyle="primary">Log in</Button>
+          <Button style={{float: 'right', width: "80px", margin: 2.5}}  bsStyle="default">Log in</Button>
         </a>
-        <Button bsStyle="warning">Register</Button>
+        <Button style={{float: 'right',  width: "80px", margin: 2.5}}  bsStyle="default">Register</Button>
       </ButtonToolbar>
     )
     else
@@ -169,32 +169,37 @@ class App extends Component {
     return (
       <Router>
       <div style={{width: 800, margin: '0 auto'}}>
+        <div className="row">
+         <Col xs={6} md={4} style={{float: 'right', margin: '0 auto'}} >
+            {topRight}
+          </Col>
+          </div>
+
       <div className="row">
-        <Col md={8}>
-          <Link to='/'>
-          <img src="logo.png" alt="" style={{margin: '10px 0', height: 80}}/>
-          </Link>
-          <button onClick={()=>{
+        <Col md={12}>
+          <a href="/"><img className="img-responsive" src="logo.png" alt="" style={{margin: '20px auto 40px auto', height: 120}}/></a>
+        </Col>
+      </div>
+
+      <button onClick={()=>{
             this.demoIndex = (this.demoIndex + 1) % 3
             this.state.loggedIn = this.demoData[this.demoIndex].loggedIn
             this.state.currentUser = this.demoData[this.demoIndex].currentUser
             this.setState(this.state)
           }}>toggle</button>
-          <FormGroup>
-            <FormControl
+
+         <FormGroup bsSize="large">
+            <FormControl 
+              style={{height:"60px", paddingLeft: "30px"}}
               type="text"
               id="search"
-              placeholder="search..."
+              placeholder="Search for iterm ..."
             />
           </FormGroup>
-        </Col>
-        <Col md={4}>
-          <div>
-            {topRight}
-          </div>
-        </Col>
-        <hr></hr>
-      </div>
+
+
+      <hr></hr>
+
       <div className="text-center">
         
           <div>
