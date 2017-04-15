@@ -23,8 +23,8 @@ firebase.initializeApp(config);
 	//Login Events
 	btnLogin.addEventLister('click', e=>{
 		//Get Email and Pass 
-		const email = txtEmail.value; 
-		const pass = txtPassword; 
+		const email = Email.value; 
+		const pass = Password; 
 		const auth = firebase.auth(); 
 		//Sign In 
 		const promise = auth.signInWithEmailAndPassword(email, pass); 
@@ -33,8 +33,8 @@ firebase.initializeApp(config);
 
 		//Add Sign Up 
 		btnSignUp.addEventLister('click', e=> {
-			const email = txtEmail.value; 
-		const pass = txtPassword; 
+			const email = Email.value; 
+		const pass = Password; 
 		const auth = firebase.auth(); 
 		//Sign Up 
 		const promise = auth.createUserWithEmailAndPassword(email, pass); 

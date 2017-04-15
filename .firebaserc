@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "lenbo-2e538"
+    "default": "lenbo-2e538",
+    "staging": "lenbo-2e538"
   }
 }
