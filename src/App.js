@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ObjectDetails from './ObjectDetails'
 import Login from './Login'
+import CompleteTransaction from './CompleteTransaction'
 import { 
   Button, 
   FormGroup, 
@@ -96,12 +97,12 @@ class App extends Component {
         <hr></hr>
       </div>
       <div className="text-center">
-        <Router history={hashHistory}>
+        <Router>
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
             <Route path="/login" component={Login}/>
             <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
-            
+            <Route path="/confirm" component={CompleteTransaction} />
           </div>
         </Router>
       </div>

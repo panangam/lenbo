@@ -11,14 +11,21 @@ class ObjectDetails extends Component {
 
     return (
       <div>
+        <div>
         <h1>{object.name}</h1>
         <h2>{object.price}</h2>
         <img src={object.pic} alt=""/>
         <h2>{object.review}</h2>
-        <p>
-        </p>
+        </div>
+        
+        <div>
+          <Link to="/confirm">
+          <button>Rent it</button>
+          </Link>
+          </div>
+  
+
         <table>
-          
         </table>
       </div>
     )
