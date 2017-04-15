@@ -11,7 +11,7 @@ import Root from './Root';
 import ObjectDetails from './ObjectDetails'
 import './index.css';
 
-console.log(Route);
+console.log(hashHistory);
 
 ReactDOM.render(
   <Router history={browserHistory}>

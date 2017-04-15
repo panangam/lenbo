@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import { App } from './App'
 
 export default class Root extends Component {
   render() {
