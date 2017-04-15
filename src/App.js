@@ -60,6 +60,7 @@ class App extends Component {
 
     this.state = {
       loggedIn: false,
+      currentUser: -1,
       objects: [
         {
           id: 0,
@@ -108,7 +109,7 @@ class App extends Component {
           gender: "Male",
           birthday: "February 30, 1970",
           location: "Los Angeles, CA",
-          photo: "https://mgtvwcbd.files.wordpress.com/2016/07/wcbd-melania-trump.jpg?w=650",
+          photo: "https://cdn.orkin.com/images/mosquitoes/mosquito-illustration_360x286.jpg",
           bio: "Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
           objects: [
             {
@@ -129,6 +130,12 @@ class App extends Component {
         }
       ],
     }
+
+    this.demoData = [
+      {loggedIn: false, currentUser: -1},
+      {loggedIn: true, currentUser: 0},
+      {loggedIn: true, currentUser: 1},
+    ]
   }
 
   generateWord() {
@@ -145,7 +152,7 @@ class App extends Component {
   render() {
     let topRight
 
-    if (!this.state.loggedIn) topRight = (
+    if (this.state.currentUser < 0) topRight = (
       <ButtonToolbar style={{marginTop: 30}}>
         <a href="/login">
           <Button bsStyle="primary">Log in</Button>
