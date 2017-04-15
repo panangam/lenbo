@@ -13,6 +13,7 @@ import {
 
 class ObjectEntry extends Component {
   render() {
+    console.log(this.props.object)
     return (
       <div>
         <Link to={'/object/'+this.props.object.id}>
@@ -74,7 +75,7 @@ class App extends Component {
         <Router history={browserHistory}>
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
-            <Route path="/object/:id" component={()=><ObjectEntry objects={this.state.objects}/>}/>
+            <Route path="/object/:id" component={ObjectDetails} objects={this.state.objects} />
           </div>
         </Router>
       </div>

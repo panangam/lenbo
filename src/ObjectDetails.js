@@ -6,13 +6,16 @@ import { Link } from 'react-router-dom'
 
 class ObjectDetails extends Component {
   render() {
+    let objectId = this.props.match.params.id
+    let object = this.props.objects.find((object)=>{return object.id===objectId})
+
     return (
       <div>
-        <h1>{this.props.object}</h1>
-        <img src="https://i.vimeocdn.com/portrait/58832_300x300" alt=""/>
+        <h1>{object.name}</h1>
+        <img src={object.pic} alt=""/>
         
         <p>
-          Lorem ipsum dolor set amit {this.props.match.params.id}
+          Lorem ipsum dolor set amit {object.id}
         </p>
         <p>
         </p>
