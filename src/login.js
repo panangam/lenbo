@@ -1,63 +1,80 @@
- (function() {
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { Link } from 'react-router-dom'
+import { 
+  Button, 
+  FormGroup, 
+  FormControl, 
+  Col, 
+  ButtonToolbar,
+  ControlLabel,
+  HelpBlock } from 'react-bootstrap'
 
-//Initialize Firebase
- 	const config = {
-    apiKey: "AIzaSyAeO7IBdEX_pVePdytyPArFTB1e2RfhHWg",
-    authDomain: "lenbo-2e538.firebaseapp.com",
-    databaseURL: "https://lenbo-2e538.firebaseio.com",
-    projectId: "lenbo-2e538",
-    storageBucket: "lenbo-2e538.appspot.com",
-    messagingSenderId: "511604296562"
-  };
+class Login extends Component {
+  constructor() {
+    super()
+    this.state = {
+      username: '',
+      passwork: '',
+    }
+  }
 
-firebase.initializeApp(config);
+  handleChangeUsername(e) {
+    this.setState({ 
+      username: e.target.value,
+      password: this.state.password,
+    });
+  }
 
-	//Get Elements for Login, Register and Log Out 
-	const txtEmail = documents.getElementById('txtEmail');
-	const txtPassword = documents.getElementById('txtPassword');
-	const btnLogin = documents.getElementById('btnLogin');
-	const btnSignUp = documents.getElementById('btnSignUp');
-	const btnLogOut = documents.getElementById('btnLogOut');
+  handleChangePassword(e) {
+    this.setState({ 
+      username: this.state.username,
+      password: e.target.value,
+    });
+  }
 
+  render() {
+    return (
+      <panel>
+      <form>
+        <FormGroup
+          controlId="username"
+          //validationState={this.getValidationState()}
+        >
+          <ControlLabel>Username</ControlLabel>
+          <FormControl
+            type="text"
+            name="username"
+            value={this.state.username}
+            placeholder="Enter username"
+            onChange={this.handleChangeUsername}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+        <FormGroup
+          controlId="password"
+          //validationState={this.getValidationState()}
+        >
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
+            type="password"
+            name="password"
+            value={this.state.password}
+            placeholder="Enter password"
+            onChange={this.handleChangePassword}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+        <ButtonToolbar bsClass="text-center">
+          <Button type="submit" bsStyle="primary">
+            Submit
+          </Button>
+        </ButtonToolbar>
+      </form>
+      </panel>
+    )
+  }
+}
 
-	//Login Events
-	btnLogin.addEventLister('click', e=>{
-		//Get Email and Pass 
-		const email = txtEmail.value; 
-		const pass = txtPassword; 
-		const auth = firebase.auth(); 
-		//Sign In 
-		const promise = auth.signInWithEmailAndPassword(email, pass); 
-		promise.catch(e => console.log(e.messsage)); 
-	}); 
-
-		//Add Sign Up 
-		btnSignUp.addEventLister('click', e=> {
-			const email = txtEmail.value; 
-		const pass = txtPassword; 
-		const auth = firebase.auth(); 
-		//Sign Up 
-		const promise = auth.createUserWithEmailAndPassword(email, pass); 
-		promise
-			.catch(e => console.log(e.message));
-
-	}); 
-
-		//Logging Out
-		btnLogOut.addEventLister('click', e=> {
-			firebase.auth().signOut(); 
-		})
-
-		//Adding Real Team Listner 
-		firebase.auth().onAuthStateChanged(firebaseUser => {
-			if(firebaseUser){
-				console.log(firebaseUser);
-			} else {
-				console.log('user not logged in'); 
-			}
-		});
-
-
-}());
-
-
+export default Login
