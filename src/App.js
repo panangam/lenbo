@@ -29,9 +29,6 @@ let $ = require('jquery')
 class ObjectEntry extends Component {
   render() {  
     return (
- 
- 
- 
         <Link to={'/object/'+this.props.object.id}>
           <Col xs={6} md={6}>
           <Thumbnail src={this.props.object.pic} style={{width: 300, height: 300, padding: '30px 10px 0 10px'}} >
@@ -39,10 +36,6 @@ class ObjectEntry extends Component {
           </Thumbnail>
           </Col>
         </Link>
- 
-       
-   
-      
     )
   }
 }
@@ -87,11 +80,11 @@ class App extends Component {
       users: [
         {
           id: 0,
-          name: "Melania Trump",
-          gender: "Female",
+          name: "Marc II",
+          gender: "Male",
           birthday: "April 26, 1970",
           location: "Los Angeles, CA",
-          photo: "https://mgtvwcbd.files.wordpress.com/2016/07/wcbd-melania-trump.jpg?w=650",
+          photo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Mackey_Saturday_2016.jpg",
           bio: "Lorem ipsum dolor sit amet",
           objects: [
             {
@@ -112,11 +105,11 @@ class App extends Component {
         },
         {
           id: 1,
-          name: "Malaria Trump",
+          name: "Mackey Saturday",
           gender: "Male",
           birthday: "February 30, 1970",
           location: "Los Angeles, CA",
-          photo: "https://cdn.orkin.com/images/mosquitoes/mosquito-illustration_360x286.jpg",
+          photo: "http://www.adventurejay.com/blog/images/PIC_7038.JPG",
           bio: "Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
           objects: [
             {
@@ -163,16 +156,18 @@ class App extends Component {
 
     if (this.state.currentUser < 0) topRight = (
       <ButtonToolbar style={{marginTop: 30}}>
-        <Link to="/login">
+        <a href="/login">
           <Button style={{float: 'right', width: "80px", margin: 2.5}}  bsStyle="default">Log in</Button>
-        </Link>
+        </a>
         <Button style={{float: 'right',  width: "80px", margin: 2.5}}  bsStyle="default">Register</Button>
       </ButtonToolbar>
     )
     else
-      topRight = (<Link to={'/user/'+this.state.currentUser}>
-        <img src={this.state.users[this.state.currentUser].photo} style={{width: 100, marginTop: 30}}/>
-      </Link>)
+  
+      topRight = (<a href={'/user/'+this.state.currentUser}>
+        <img src={this.state.users[this.state.currentUser].photo} style={{width: '80px', float: 'right'}}/>
+      </a>)
+
 
     return (
       <Router>
@@ -185,7 +180,7 @@ class App extends Component {
 
       <div className="row">
         <Col md={12}>
-          <Link to="/"><img className="img-responsive" src="logo.png" alt="" style={{margin: '20px auto 40px auto', height: 120}}/></Link>
+          <a href="/"><img className="img-responsive" src="logo.png" alt="" style={{margin: '20px auto 40px auto', height: 120}}/></a>
         </Col>
       </div>
 
@@ -204,7 +199,6 @@ class App extends Component {
               placeholder="Search for iterm ..."
             />
           </FormGroup>
-
 
       <hr></hr>
 
