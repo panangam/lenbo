@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ObjectDetails from './ObjectDetails'
-import { Button, FormGroup, FormControl } from 'react-bootstrap'
+import Login from './Login'
+import { 
+  Button, 
+  FormGroup, 
+  FormControl, 
+  Col, 
+  ButtonToolbar,
+  ControlLabel,
+  HelpBlock } from 'react-bootstrap'
 
 import {
   BrowserRouter as Router,
@@ -60,25 +68,39 @@ class App extends Component {
 
   render() {
     return (
-      <div className="row text-center">
-        <h1>Lenbo</h1>
-        <FormGroup>
-          <FormControl
-            className="text-center"
-            style={
-              {maxWidth: 400, margin: '0 auto 10px'}
-            }
-            type="text"
-          />
-        </FormGroup>
+      <div style={{width: 800, margin: '0 auto'}}>
+      <div className="row">
+        <Col md={8}>
+          <h1>Lenbo</h1>
+          <FormGroup>
+            <FormControl
+              type="text"
+              id="search"
+            />
+          </FormGroup>
+        </Col>
+        <Col md={4}>
+          <div>
+          <ButtonToolbar style={{marginTop: 30}}>
+            <a href="/login">
+              <Button bsStyle="primary">Log in</Button>
+            </a>
+            <Button bsStyle="warning">Register</Button>
+          </ButtonToolbar>
+          </div>
+        </Col>
         <hr></hr>
-
+      </div>
+      <div className="text-center">
         <Router history={hashHistory}>
           <div>
             <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
+            <Route path="/login" component={Login}/>
             <Route path="/object/:id" component={({match})=><ObjectDetails objects={this.state.objects} id={match.params.id}/>} />
+            
           </div>
         </Router>
+      </div>
       </div>
     );
   }
