@@ -101,29 +101,35 @@ class App extends Component {
   render() {
     return (
       <div style={{width: 800, margin: '0 auto'}}>
-      <div className="row">
-        <Col md={8}>
-          <a href="/"><img src="logo.png" alt="" style={{margin: '10px 0', height: 80}}/></a>
-          <FormGroup>
-            <FormControl
-              type="text"
-              id="search"
-              placeholder="search..."
-            />
-          </FormGroup>
-        </Col>
-        <Col md={4}>
-          <div>
+    <div className="row">
+         <Col xs={6} md={4} style={{float: 'right', margin: '0 auto'}} >
           <ButtonToolbar style={{marginTop: 30}}>
             <a href="/login">
-              <Button bsStyle="primary">Log in</Button>
+              <Button style={{float: 'right', width: "80px", margin: 2.5}}  bsStyle="default">Log in</Button>
             </a>
-            <Button bsStyle="warning">Register</Button>
+            <Button style={{float: 'right',  width: "80px", margin: 2.5}}  bsStyle="default">Register</Button>
           </ButtonToolbar>
+          </Col>
           </div>
+
+      <div className="row">
+        <Col md={12}>
+          <a href="/"><img className="img-responsive" src="logo.png" alt="" style={{margin: '20px auto 40px auto', height: 120}}/></a>
         </Col>
-        <hr></hr>
       </div>
+
+         <FormGroup bsSize="large">
+            <FormControl 
+              style={{height:"60px", paddingLeft: "30px"}}
+              type="text"
+              id="search"
+              placeholder="Search for iterm ..."
+            />
+          </FormGroup>
+
+
+      <hr></hr>
+
       <div className="text-center">
         <Router>
           <div>
