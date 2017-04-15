@@ -12,7 +12,7 @@ import {
   Col, 
   ButtonToolbar,
   ControlLabel,
-  HelpBlock } from 'react-bootstrap'
+  HelpBlock, Thumbnail } from 'react-bootstrap'
 
 import {
   BrowserRouter as Router,
@@ -28,8 +28,11 @@ class ObjectEntry extends Component {
     return (
       <div>
         <Link to={'/object/'+this.props.object.id}>
-          <img src={this.props.object.pic} style={{width: 100, height: 100}} />
-          <b>{this.props.object.name}</b>
+          <Col xs={6} md={4}>
+          <Thumbnail src={this.props.object.pic} style={{width: 300}} >
+          <h3>{this.props.object.name}</h3>
+          </Thumbnail>
+          </Col>
         </Link>
       </div>
     )
