@@ -59,7 +59,7 @@ class ObjectList extends Component {
 class App extends Component {
   constructor() {
     super()
-
+    /*
     this.state = {
       loggedIn: false,
       currentUser: -1,
@@ -132,6 +132,7 @@ class App extends Component {
         }
       ],
     }
+    */
 
     this.demoData = [
       {loggedIn: false, currentUser: -1},
@@ -140,6 +141,29 @@ class App extends Component {
     ]
 
     this.demoIndex = 0
+
+    $.ajax({
+      url: 'https://lenbo-2e538.firebaseio.com/data.json', 
+      success: (e)=>{
+        this.state = (e)
+        console.log(e)
+      },
+      async: false,
+    }).fail(()=>console.log('fail!'))
+  }
+
+  compentWillMount() {
+    $.ajax({
+      url: 'https://lenbo-2e538.firebaseio.com/data.json', 
+      success: (e)=>{
+        this.setState(e)
+        console.log(e)
+      },
+      async: false,
+    }).fail(()=>console.log('fail!')).delay(1000)
+    console.log('before delay')
+    $.delay(1000)
+    console.log('after delay')
   }
 
   generateWord() {
@@ -168,6 +192,8 @@ class App extends Component {
       topRight = (<Link to={'/user/'+this.state.currentUser}>
         <img src={this.state.users[this.state.currentUser].photo} style={{width: 100, marginTop: 30}}/>
       </Link>)
+
+    console.log(this.state)
 
     return (
       <Router>
