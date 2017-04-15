@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ObjectDetails from './ObjectDetails'
 import { Button, FormGroup, FormControl } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  browserHistory
+} from 'react-router-dom';
 
 class ObjectEntry extends Component {
   render() {
@@ -12,6 +19,18 @@ class ObjectEntry extends Component {
           <img src={this.props.object.pic} style={{width: 100, height: 100}} />
           <b>{this.props.object.name}</b>
         </Link>
+      </div>
+    )
+  }
+}
+
+class ObjectList extends Component {
+  render() {
+    return (
+      <div>
+      {this.props.objects.map((object) => 
+        <ObjectEntry object={object} key={object.id} />
+      )}
       </div>
     )
   }
@@ -51,9 +70,13 @@ class App extends Component {
           />
         </FormGroup>
         <hr></hr>
-        {this.state.objects.map((object) => 
-          <ObjectEntry object={object} key={object.id} />
-        )}
+
+        <Router history={browserHistory}>
+          <div>
+            <Route exact path="/" component={()=><ObjectList objects={this.state.objects}/>}/>
+            <Route path="/object/:id" component={()=><ObjectEntry objects={this.state.objects}/>}/>
+          </div>
+        </Router>
       </div>
     );
   }

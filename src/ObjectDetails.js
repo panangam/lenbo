@@ -7,23 +7,14 @@ import { Link } from 'react-router-dom'
 class ObjectDetails extends Component {
   render() {
     return (
-      <div className="row text-center">
-        <h1>Lenbo</h1>
-        <FormGroup>
-        <FormControl
-          className="text-center"
-          type="text"
-        />
-        </FormGroup>
-        <hr></hr>
-        <h1>Item Name</h1>
+      <div>
+        <h1>{this.props.object}</h1>
         <img src="https://i.vimeocdn.com/portrait/58832_300x300" alt=""/>
         
         <p>
           Lorem ipsum dolor set amit {this.props.match.params.id}
         </p>
         <p>
-          price: {this.props.object.}
         </p>
         <table>
           

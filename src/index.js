@@ -11,14 +11,7 @@ import Root from './Root';
 import ObjectDetails from './ObjectDetails'
 import './index.css';
 
-console.log(hashHistory);
-
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <div>
-      <Route exact path="/" component={App} />
-      <Route path="/object/:id" component={ObjectDetails} />
-    </div>
-  </Router>,
+  <App />,
   document.getElementById('root')
 );
