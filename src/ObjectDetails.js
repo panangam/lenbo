@@ -12,11 +12,9 @@ class ObjectDetails extends Component {
     return (
       <div>
         <h1>{object.name}</h1>
+        <h2>{object.price}</h2>
         <img src={object.pic} alt=""/>
-        
-        <p>
-          Lorem ipsum dolor set amit {object.id}
-        </p>
+        <h2>{object.review}</h2>
         <p>
         </p>
         <table>

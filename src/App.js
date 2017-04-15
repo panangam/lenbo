@@ -54,13 +54,17 @@ class App extends Component {
       objects: [
         {
           id: 0,
-          name: "test1",
-          pic: "https://i.vimeocdn.com/portrait/58832_300x300",
+          name: "Road Bikes with Carbon Forks",
+          price: "$500",
+          pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-white_500.jpg",
+          review: "I like it, perfect for the entry to sport level athlete."
         },
         {
           id: 1,
-          name: "test2",
-          pic: "https://i.vimeocdn.com/portrait/58832_300x300",
+          name: "Motobecane Mirage S",
+          price: "$500",
+          pic: "http://www.bikesdirect.com/products/motobecane/images/mirage-s-black_500.jpg",
+          review: "It's awesome, most convenient Braking and Shifting in one location",
         }
       ]
     }
