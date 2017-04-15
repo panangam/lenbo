@@ -12,19 +12,18 @@ class ObjectDetails extends Component {
     return (
       <div>
         <div>
-        <h1>{object.name}</h1>
-        <h2>{object.price}</h2>
+        <h1>{object.name}&nbsp;<span style={{background: '#f0ad4e', color: 'white', padding: '5px' }}>{object.price}</span></h1>
         <img src={object.pic} alt=""/>
-        <h2>{object.review}</h2>
         </div>
         
         <div>
           <Link to="/confirm">
-          <button>Rent it</button>
+          <Button bsStyle="warning" style={{height: '50px', width: '120px', fontSize: "16px"}}>Request</Button>
           </Link>
           </div>
-  
 
+          <h3>{object.review}</h3>
+  
         <table>
         </table>
       </div>
