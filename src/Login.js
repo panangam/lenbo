@@ -16,21 +16,21 @@ class Login extends Component {
   constructor() {
     super()
     this.state = {
-      username: '',
+      email: '',
       passwork: '',
     }
   }
 
-  handleChangeUsername(e) {
+  handleChangeEmail(e) {
     this.setState({ 
-      username: e.target.value,
+      email: e.target.value,
       password: this.state.password,
     });
   }
 
   handleChangePassword(e) {
     this.setState({ 
-      username: this.state.username,
+      email: this.state.email,
       password: e.target.value,
     });
   }
@@ -40,16 +40,16 @@ class Login extends Component {
       <Panel style={{width: 500, margin: '0 auto'}}>
       <form>
         <FormGroup
-          controlId="username"
+          controlId="email"
           //validationState={this.getValidationState()}
         >
-          <ControlLabel>Username</ControlLabel>
+          <ControlLabel>Email</ControlLabel>
           <FormControl
             type="text"
-            name="username"
-            value={this.state.username}
-            placeholder="Enter username"
-            onChange={this.handleChangeUsername}
+            name="email"
+            value={this.state.email}
+            placeholder="Enter email"
+            onChange={this.handleChangeEmail}
           />
           <FormControl.Feedback />
         </FormGroup>
